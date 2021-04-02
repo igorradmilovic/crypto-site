@@ -40,12 +40,13 @@ const Header = () => {
                 <div className="header-logo-section">
                     <img className="header-logo" src={FungiPNG} />
                     <div className="header-brand">Funger</div>
+                    <div className="header-sub-text">Barely know her...</div>
                 </div>
                 {
                     headerItems.map((nav, indx) => {
                         return (
                             <Link key={indx} to={nav.url}>
-                                <div className="header-item">
+                                <div className="button header-item">
                                     <div className="button header-sub-items">
                                         <img
                                             className="header-img"
@@ -64,12 +65,12 @@ const Header = () => {
                 }
             </div>
             <div className="header-bottom-section">
-                <div className="header-item header-footer">
+                <Link className="header-item header-footer" to="/learnmore">
                     Learn More
-                </div>
-                <div className="header-item header-footer">
-                    About
-                </div>
+                </Link>
+                <Link className="header-item header-footer logout" to="/logout">
+                    Log out
+                </Link>
             </div>
         </div>
     );

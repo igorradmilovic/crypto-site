@@ -4,6 +4,8 @@ $shadow-color:#f7f7f7;
 $border-color-primary: #80808017;
 
 .header-section {
+    overflow: scroll;
+    background: white;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -22,31 +24,34 @@ $border-color-primary: #80808017;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;    
-        
-        .header-logo {
-            width: 75px;
-            margin: 0px 10px 15px;
-            transition: all .28s ease-in-out;
+        align-items: center;
 
-            &:hover {
-                transform: rotate(40deg);
-            }
+        .header-sub-text {
+            font-style: italic;
+            font-size: 15px;
         }
-
-        .header-brand {
-            font-family: 'Crete Round';
-            font-size: 2.4rem;
-            margin: 5px 5px;
-        }
-
     }
 
+    .header-brand {
+        font-family: 'Crete Round';
+        font-size: 2.4rem;
+        margin: 5px 5px;
+    }
+
+    .header-logo {
+        width: 75px;
+        margin: 0px 10px 15px;
+        transition: all .28s ease-in-out;
+
+        &:hover {
+            transform: rotate(40deg);
+        }
+    }
 
     .header-item {
         border: 1px solid $border-color-primary;
-        margin: 10px auto;
-        padding: 5px;
+        margin: 8px auto;
+        padding: 8px;
         word-wrap: break-word;
         white-space: normal;
         border-radius: 100px;
@@ -55,10 +60,15 @@ $border-color-primary: #80808017;
         font-family: 'Crete Round';
         font-weight: 100;
 
-        &:hover {
+        &:first-child {
+            margin-top: 20px;
+        }
+
+        &:hover, &:focus, &:active {
             transform: scale(1.06);
             box-shadow: 2px 2px 2px 1px $shadow-color;
             background:$primary-color;
+            outline: none;
         }
 
         &:active {
@@ -104,62 +114,63 @@ $border-color-primary: #80808017;
     }
 }
 
-@media only screen and (max-width: 500px) {
-    .header-img {
-        width: 35px;
-        height: 35px;
-    }
-    .header-footer {
-        font-size: 13px;
-    }
-}
-
 @media only screen and (max-width: 800px) {
-    .header-title {
-        display: none;
-    }
-    .header-logo-section { 
-        margin: 0 !important;
-        display: flex;
-        flex-direction: row-reverse !important;
-    }
-    .header-logo {
-        width: 75px !important;
-        margin: 0 !important;
-    }
-    .header-brand  {
-        display: none;
+    .main-header-container {
+        height: 120px;
+
+        .header-title, 
+        .header-sub-text,
+        .header-bottom-section {
+            display: none;
+        }
+
+            
     }
     .header-section {
         border-right: none;
-        border-top: 4px solid rgba(219, 219, 219, 0.377);
-        flex-direction: row;
-        width: 100%;
-        margin: none !important;
-    }
-    .header-item {
-        border: none !important;
-        box-shadow: none !important;
-        &:active {
-            background: $primary-color;
-        }
-    }
-    .header-top-section {
+        border-top: 2px solid rgba(219, 219, 219, 0.377);
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-    .header-bottom-section {
-        display: none;
-    }
-    .header-section, .header-item  {
-        padding: 15px !important;
-        margin: 0 !important;
+        flex-direction: inline-flex;
+        padding: 8px;
+
+        .header-top-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            align-items: center;
+
+            .header-item {
+                border: none;
+                box-shadow: none;
+                padding: 16px;
+                margin: 0 8px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .header-logo-section {
+        
+            .header-logo {
+                width: 35px;
+                margin: 0 auto;
+            }
+            .header-brand {
+                font-size: 20px;
+            }
+        }
+
     }
 }
-
-
+@media only screen and (max-width: 500px) {
+    .header-logo,
+    .header-brand {
+        display: none;
+    }
+}
 
 
 
